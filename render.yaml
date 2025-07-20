@@ -4,7 +4,7 @@ services:
     runtime: docker
     repo: https://github.com/mohanpoddar/posmanager
     branch: master
-    rootDir: services/items_service  # ✅ Tells Render where to find Dockerfile
+    rootDir: services/items_service
     plan: free
     region: oregon
     envVars:
