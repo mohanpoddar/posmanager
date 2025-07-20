@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: posmanager
+    name: items_service
     runtime: docker
     repo: https://github.com/mohanpoddar/posmanager
     branch: master
