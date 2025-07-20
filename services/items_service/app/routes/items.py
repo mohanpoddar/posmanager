@@ -15,6 +15,7 @@ def get_db():
 
 @router.get("/items", response_model=list[ItemOut])
 def list_items(db: Session = Depends(get_db)):
+    print(crud.get_items(db))
     return crud.get_items(db)
 
 @router.post("/items", response_model=ItemOut)
