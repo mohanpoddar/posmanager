@@ -8,3 +8,15 @@ services:
     envVars:
       - key: PORT
         value: 8000
+
+  - type: web
+    name: items-service
+    runtime: docker
+    repo: https://github.com/mohanpoddar/posmanager
+    plan: free
+    branch: master
+    rootDir: services/items_service
+    region: oregon
+    envVars:
+      - key: DATABASE_URL
+        sync: false
