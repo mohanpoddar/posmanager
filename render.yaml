@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: posmanager
+    runtime: docker
+    repo: https://github.com/mohanpoddar/posmanager
+    plan: free
+    branch: master
+    envVars:
+      - key: PORT
+        value: 8000
