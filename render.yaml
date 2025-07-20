@@ -1,14 +1,12 @@
 services:
   - type: web
-    name: posmanager
+    name: items-service
     runtime: docker
     repo: https://github.com/mohanpoddar/posmanager
-    plan: free
     branch: master
-    rootDir: services/items_service
+    rootDir: services/items_service  # ✅ Tells Render where to find Dockerfile
+    plan: free
     region: oregon
     envVars:
       - key: DATABASE_URL
         sync: false
-      - key: test1
-        value: test2
