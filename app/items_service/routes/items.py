@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from app.models.db import SessionLocal, Item
-from app.models.schema import ItemCreate, ItemOut
-from app.crud import items as crud
+from ..models.db import SessionLocal, Item
+from ..models.schema import ItemCreate, ItemOut
+from ..crud import items as crud
 from fastapi.responses import JSONResponse
 from sqlalchemy.exc import OperationalError
-from app.models.db import engine
+from ..models.db import engine
 
 
 router = APIRouter()
@@ -17,12 +17,12 @@ def get_db():
     finally:
         db.close()
 
-@router.get("/items", response_model=list[ItemOut])
+@router.get("/list-all", response_model=list[ItemOut])
 def list_items(db: Session = Depends(get_db)):
     print(crud.get_items(db))
     return crud.get_items(db)
 
-@router.post("/items", response_model=ItemOut)
+@router.post("/create", response_model=ItemOut)
 def add_item(item: ItemCreate, db: Session = Depends(get_db)):
     return crud.create_item(item, db)
 
