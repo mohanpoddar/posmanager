@@ -10,4 +10,4 @@ async def create_order(order: Order):
 
 @router.get("/list", response_model=list[Order])
 async def get_orders():
-    return await list_orders()
+    return list_orders()
